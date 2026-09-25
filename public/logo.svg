@@ -1,0 +1,32 @@
+<svg
+  width="48"
+  height="48"
+  viewBox="0 0 48 48"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="holoLogo" x1="6" y1="6" x2="42" y2="42" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5FE3CC" />
+      <stop offset="0.55" stop-color="#00B398" />
+      <stop offset="1" stop-color="#007A68" />
+    </linearGradient>
+  </defs>
+  <!-- angled HUD frame -->
+  <path
+    d="M14 6H34L42 14V34L34 42H14L6 34V14L14 6Z"
+    stroke="url(#holoLogo)"
+    stroke-width="1.5"
+    stroke-opacity="0.55"
+    fill="#00332C"
+    fill-opacity="0.35"
+  />
+  <!-- corner ticks -->
+  <path d="M14 6H20M6 14V20M42 14V20M34 42H28M42 34V28M6 34V28" stroke="#5FE3CC" stroke-width="2.5" stroke-linecap="round" />
+  <!-- value-network nodes -->
+  <circle cx="24" cy="17" r="3.2" fill="url(#holoLogo)" />
+  <circle cx="15.5" cy="31" r="2.6" fill="#5FE3CC" />
+  <circle cx="32.5" cy="31" r="2.6" fill="#5FE3CC" />
+  <!-- connecting mesh -->
+  <path d="M24 17L15.5 31M24 17L32.5 31M15.5 31L32.5 31" stroke="#5FE3CC" stroke-width="1.4" stroke-opacity="0.85" />
+</svg>
