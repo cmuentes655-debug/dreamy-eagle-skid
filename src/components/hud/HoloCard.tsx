@@ -143,7 +143,7 @@ export function HoloCard({
           <span className="holo-ambient pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
             <span
               aria-hidden
-              className="animate-scan absolute inset-x-0 h-2/5 bg-gradient-to-b from-transparent via-holo-mint/15 to-transparent"
+              className="animate-scan absolute inset-x-0 h-1/2 bg-gradient-to-b from-transparent via-holo-mint/20 to-transparent"
               style={{ animationDelay: `${index * 1.6}s` }}
             />
           </span>
