@@ -135,14 +135,30 @@ export function HoloCard({
           />
         ))}
 
-        {/* staggered ambient scan line */}
+        {/* cascading relay scan: one card sweeps ~2s, staggered across the 8 bento cards */}
+        {/* NOTE: 16s cycle = 2s × 8 cards; adjust delay/cycle if the card count changes */}
         {scan && (
-          <span className="holo-ambient pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+          <>
+            {/* brief full-border pulse, synced with the sweep */}
             <span
-              className="animate-scan absolute inset-x-0 h-1/3 bg-gradient-to-b from-transparent via-holo-mint/10 to-transparent"
-              style={{ animationDelay: `${index * 1.6}s` }}
+              aria-hidden
+              className="holo-ambient pointer-events-none absolute inset-0 animate-hud-scan-glow rounded-2xl border border-holo-mint/70"
+              style={{ animationDelay: `${-index * 2}s` }}
             />
-          </span>
+            {/* line + trail */}
+            <span className="holo-ambient pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+              <span
+                aria-hidden
+                className="absolute inset-0 animate-hud-scan"
+                style={{ animationDelay: `${-index * 2}s` }}
+              >
+                {/* trail (40px) */}
+                <span className="absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-holo-mint/20 to-transparent" />
+                {/* scan line (2px) + turquoise glow */}
+                <span className="absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-holo-mint/70 shadow-[0_0_8px_1px_rgba(95,227,204,0.55)]" />
+              </span>
+            </span>
+          </>
         )}
 
         {reduce ? (

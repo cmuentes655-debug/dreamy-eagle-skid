@@ -105,14 +105,23 @@ export default {
           "88%": { opacity: "0.85" },
           "100%": { transform: "translateY(110%)", opacity: "0" },
         },
+        "hud-scan": {
+          "0%": { transform: "translateY(-105%)", opacity: "0" },
+          "1.5%": { opacity: "1" },
+          "12.5%": { transform: "translateY(5%)", opacity: "1" },
+          "14%": { opacity: "0" },
+          "100%": { transform: "translateY(5%)", opacity: "0" },
+        },
+        "hud-scan-glow": {
+          "0%": { opacity: "0" },
+          "6%": { opacity: "0.55" },
+          "12.5%": { opacity: "0" },
+          "100%": { opacity: "0" },
+        },
         "scanner-line": {
           "0%": { transform: "translateX(-35%)", opacity: "0" },
           "50%": { opacity: "1" },
           "100%": { transform: "translateX(135%)", opacity: "0" },
-        },
-        "spin-slow": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
         },
         "spin-reverse": {
           from: { transform: "rotate(360deg)" },
@@ -134,11 +143,7 @@ export default {
           "0%, 100%": { transform: "translate3d(0,0,0) scale(1)" },
           "50%": { transform: "translate3d(0,-4%,0) scale(1.06)" },
         },
-        "radar-sweep": {
-          from: { transform: "rotate(0deg)" },
-          to: { transform: "rotate(360deg)" },
-        },
-        "flicker": {
+        flicker: {
           "0%, 100%": { opacity: "1" },
           "45%": { opacity: "0.85" },
           "50%": { opacity: "0.6" },
@@ -149,12 +154,12 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         scan: "scan 7s linear infinite",
+        "hud-scan": "hud-scan 16s linear infinite",
+        "hud-scan-glow": "hud-scan-glow 16s linear infinite",
         "scanner-line": "scanner-line 4.5s ease-in-out infinite",
-        "spin-slow": "spin-slow 42s linear infinite",
         "spin-reverse": "spin-reverse 64s linear infinite",
         "pulse-dot": "pulse-dot 2.2s ease-in-out infinite",
         "aurora-float": "aurora-float 18s ease-in-out infinite",
-        "radar-sweep": "radar-sweep 6s linear infinite",
         flicker: "flicker 6s ease-in-out infinite",
       },
     },

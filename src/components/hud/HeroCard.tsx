@@ -6,44 +6,6 @@ interface HeroCardProps {
   onJoin: () => void;
 }
 
-function RadarRing() {
-  return (
-    <div className="relative mx-auto aspect-square h-full min-h-[150px] w-auto max-h-[38vh]">
-      {/* outer ticking ring */}
-      <div className="holo-ambient absolute inset-0 animate-spin-slow rounded-full border border-dashed border-holo-mint/25" />
-      <div className="absolute inset-0 rounded-full border border-holo-mint/20" />
-      {[14, 28, 42].map((inset) => (
-        <div
-          key={inset}
-          className="absolute rounded-full border border-holo-mint/[0.12]"
-          style={{ inset: `${inset}%` }}
-        />
-      ))}
-
-      {/* crosshair reticle */}
-      <span className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-holo-mint/15" />
-      <span className="absolute top-1/2 left-0 h-px w-full -translate-y-1/2 bg-holo-mint/15" />
-
-      {/* rotating radar sweep */}
-      <div
-        className="holo-ambient absolute inset-0 animate-radar-sweep rounded-full"
-        style={{
-          background:
-            "conic-gradient(from 0deg, rgba(95,227,204,0.35), rgba(95,227,204,0.05) 22%, transparent 30%, transparent 100%)",
-        }}
-      />
-
-      {/* center core */}
-      <span className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-holo-ember shadow-[0_0_16px_4px_rgba(252,76,2,0.7)]" />
-      <span className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 animate-pulse-dot rounded-full bg-holo-ember" />
-
-      <span className="absolute left-1/2 top-[16%] h-1.5 w-1.5 -translate-x-1/2 rounded-full bg-holo-mint/80" />
-      <span className="absolute right-[20%] bottom-[24%] h-1.5 w-1.5 rounded-full bg-holo-mint/60" />
-      <span className="absolute left-[22%] bottom-[34%] h-1 w-1 rounded-full bg-holo-mint/50" />
-    </div>
-  );
-}
-
 export function HeroCard({ onJoin }: HeroCardProps) {
   return (
     <HoloCard index={0} className="h-full" contentClassName="p-6 sm:p-8 lg:p-9">
@@ -57,12 +19,12 @@ export function HeroCard({ onJoin }: HeroCardProps) {
           </span>
         </div>
 
-        <div className="mt-5">
-          <span className="inline-flex items-center gap-2 rounded-full border border-holo-mint/25 bg-holo-mint/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-holo-mint/90">
+        <div className="flex flex-1 flex-col justify-center py-6">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-holo-mint/25 bg-holo-mint/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-holo-mint/90">
             <Sparkles className="h-3 w-3" />
             Comité activo
           </span>
-          <h1 className="mt-5 font-display text-[clamp(1.75rem,3.4vw,2.85rem)] font-semibold leading-[1.08] tracking-tight text-white text-glow">
+          <h1 className="mt-5 font-display text-[clamp(2rem,3.9vw,3.3rem)] font-semibold leading-[1.06] tracking-tight text-white text-glow">
             Comité de Adopción de IA para la Colaboración en las Redes de Valor
           </h1>
           <p className="mt-4 max-w-xl text-sm leading-relaxed text-holo-mist/90 sm:text-[15px]">
@@ -71,7 +33,7 @@ export function HeroCard({ onJoin }: HeroCardProps) {
           </p>
         </div>
 
-        <div className="mt-6 flex flex-wrap items-center gap-4">
+        <div className="mt-auto flex flex-wrap items-center gap-4 border-t border-holo-mint/10 pt-5">
           <button
             type="button"
             onClick={onJoin}
@@ -83,10 +45,6 @@ export function HeroCard({ onJoin }: HeroCardProps) {
           <p className="font-mono text-[10px] uppercase tracking-[0.2em] text-holo-mint/50">
             Sin costo · Pilotos reales
           </p>
-        </div>
-
-        <div className="relative mt-auto flex min-h-0 flex-1 items-end justify-center pt-6">
-          <RadarRing />
         </div>
       </div>
     </HoloCard>
