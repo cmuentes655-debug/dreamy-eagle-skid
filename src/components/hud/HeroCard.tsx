@@ -8,7 +8,12 @@ interface HeroCardProps {
 
 export function HeroCard({ onJoin }: HeroCardProps) {
   return (
-    <HoloCard index={0} className="h-full" contentClassName="p-6 sm:p-8 lg:p-9">
+    <HoloCard
+      index={0}
+      scanVariant="band"
+      className="h-full"
+      contentClassName="p-6 sm:p-8 lg:p-9"
+    >
       <div className="flex h-full flex-col">
         <div className="flex items-center justify-between gap-4">
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-holo-mint">

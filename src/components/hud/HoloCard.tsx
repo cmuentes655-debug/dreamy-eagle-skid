@@ -17,8 +17,10 @@ interface HoloCardProps {
   contentClassName?: string;
   /** stagger index — drives entrance delay and scan-line offset */
   index?: number;
-  /** show the staggered ambient scan line */
+  /** show the ambient scan effect */
   scan?: boolean;
+  /** scan effect style: a crisp ambient line (default) or the soft moving band */
+  scanVariant?: "line" | "band";
   /** enable the 3D tilt following the cursor (desktop only) */
   tilt?: boolean;
 }
@@ -50,7 +52,7 @@ const contentVariants: Variants = {
 
 /**
  * Reusable holographic HUD panel: translucent glass, glowing angle brackets,
- * an optional staggered scan line and a desktop-only 3D tilt.
+ * an optional ambient scan effect and a desktop-only 3D tilt.
  */
 export function HoloCard({
   children,
@@ -58,6 +60,7 @@ export function HoloCard({
   contentClassName,
   index = 0,
   scan = true,
+  scanVariant = "line",
   tilt = true,
 }: HoloCardProps) {
   const reduce = useReducedMotion();
@@ -135,9 +138,20 @@ export function HoloCard({
           />
         ))}
 
-        {/* cascading relay scan: one card sweeps ~2.5s, staggered across the 8 bento cards */}
+        {/* soft top-to-bottom moving band (hero) */}
+        {scan && scanVariant === "band" && (
+          <span className="holo-ambient pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+            <span
+              aria-hidden
+              className="animate-scan absolute inset-x-0 h-2/5 bg-gradient-to-b from-transparent via-holo-mint/15 to-transparent"
+              style={{ animationDelay: `${index * 1.6}s` }}
+            />
+          </span>
+        )}
+
+        {/* cascading relay scan line: one card sweeps ~2.5s, staggered across the 8 bento cards */}
         {/* NOTE: 20s cycle = 2.5s × 8 cards; adjust delay/cycle if the card count changes */}
-        {scan && (
+        {scan && scanVariant === "line" && (
           <>
             {/* brief full-border pulse, synced with the sweep */}
             <span
