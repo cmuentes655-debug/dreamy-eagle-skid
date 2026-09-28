@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { ArrowUpRight, Sparkles } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 import { HoloCard } from "./HoloCard";
 import { HeroTabs, type HeroTab, type HeroTabId } from "./HeroTabs";
+import { HeroIntro } from "./HeroIntro";
 import { ParticipantsPanel } from "./ParticipantsPanel";
 import { UpcomingDatesPanel } from "./UpcomingDatesPanel";
 import { CommitteeFormPanel } from "./CommitteeFormPanel";
 import { PillarsPanel } from "./PillarsPanel";
 
 const TABS: HeroTab[] = [
+  { id: "home", label: "Inicio" },
   { id: "participants", label: "Participantes" },
   { id: "dates", label: "Próximas fechas" },
   { id: "form", label: "Formulario" },
@@ -16,7 +18,7 @@ const TABS: HeroTab[] = [
 ];
 
 export function HeroCard() {
-  const [activeTab, setActiveTab] = useState<HeroTabId>("participants");
+  const [activeTab, setActiveTab] = useState<HeroTabId>("home");
   const [focusRequest, setFocusRequest] = useState(0);
 
   const handleJoin = () => {
@@ -32,7 +34,7 @@ export function HeroCard() {
       contentClassName="p-5 sm:p-7 lg:p-8"
     >
       <div className="flex h-full min-h-0 flex-col">
-        <div className="flex items-center justify-between gap-4">
+        <div className="flex shrink-0 items-center justify-between gap-4">
           <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-holo-mint">
             SYS.00 // NÚCLEO
           </span>
@@ -41,22 +43,9 @@ export function HeroCard() {
           </span>
         </div>
 
-        <div className="shrink-0 pt-4 sm:pt-5">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-holo-mint/25 bg-holo-mint/5 px-3 py-1 font-mono text-[10px] uppercase tracking-[0.2em] text-holo-mint/90">
-            <Sparkles className="h-3 w-3" />
-            Comité activo
-          </span>
-          <h1 className="mt-3 font-display text-[clamp(1.5rem,2.7vw,2.4rem)] font-semibold leading-[1.08] tracking-tight text-white text-glow">
-            Comité de Adopción de IA para la Colaboración en las Redes de Valor
-          </h1>
-          <p className="mt-2.5 max-w-xl text-[13px] leading-relaxed text-holo-mist/85 sm:text-sm">
-            Impulsamos la inteligencia artificial para que la logística colabore
-            mejor, de extremo a extremo.
-          </p>
-        </div>
-
         <div className="mt-4 flex min-h-0 flex-1 flex-col sm:mt-5">
           <HeroTabs tabs={TABS} active={activeTab} onChange={setActiveTab}>
+            {activeTab === "home" && <HeroIntro />}
             {activeTab === "participants" && <ParticipantsPanel />}
             {activeTab === "dates" && <UpcomingDatesPanel />}
             {activeTab === "form" && (

@@ -3,7 +3,12 @@ import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import { cn } from "@/lib/utils";
 
-export type HeroTabId = "participants" | "dates" | "form" | "pillars";
+export type HeroTabId =
+  | "home"
+  | "participants"
+  | "dates"
+  | "form"
+  | "pillars";
 
 export interface HeroTab {
   id: HeroTabId;
