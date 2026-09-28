@@ -11,7 +11,7 @@ export function TopBar({ onLogin, onJoin }: TopBarProps) {
       <div className="mx-auto flex h-16 max-w-[1600px] items-center justify-between gap-4 px-4 sm:h-[4.5rem] sm:px-6 lg:h-20 lg:px-10">
         <div className="flex items-center gap-3">
           <img
-            src="/logo.svg"
+            src={`${import.meta.env.BASE_URL}logo.svg`}
             alt="Comité de Adopción de IA"
             className="h-9 w-9 sm:h-10 sm:w-10"
           />

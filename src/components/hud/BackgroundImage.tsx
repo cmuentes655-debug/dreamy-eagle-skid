@@ -61,7 +61,7 @@ export function BackgroundImage() {
       >
         <motion.div className="absolute inset-0" style={{ x, y, scale: 1.05 }}>
           <img
-            src="/fondo-red-global.jpg"
+            src={`${import.meta.env.BASE_URL}fondo-red-global.jpg`}
             alt=""
             className="bg-kenburns h-full w-full object-cover"
             style={{
