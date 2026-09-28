@@ -1,9 +1,13 @@
 import {
   BookText,
+  Flag,
   FlaskConical,
+  Handshake,
   Lightbulb,
   LineChart,
+  ListChecks,
   Network,
+  Target,
   type LucideIcon,
 } from "lucide-react";
 
@@ -173,47 +177,57 @@ export const upcomingDates: CommitteeDate[] = [
 ];
 
 export interface Pillar {
-  /** Pillar code, e.g. "P.01" */
+  /** Pillar code, e.g. "OBJ" */
   code: string;
   title: string;
-  description: string;
+  /** Short supporting text (optional — "Funciones" uses `items`) */
+  description?: string;
+  /** Bulleted list of responsibilities */
+  items?: string[];
+  /** Width within the pillar grid */
+  span?: "full" | "half";
+  /** Emphasised "lead" treatment */
+  lead?: boolean;
   icon: LucideIcon;
 }
 
 export const pillars: Pillar[] = [
   {
-    code: "P.01",
-    title: "Articulación",
+    code: "OBJ",
+    title: "Objetivo",
+    lead: true,
+    span: "full",
     description:
-      "Conectamos empresas, instituciones y gremios de la cadena logística.",
-    icon: Network,
+      "Liderar la adopción de IA para potenciar la colaboración en las redes de valor.",
+    icon: Target,
   },
   {
-    code: "P.02",
-    title: "Protocolos",
+    code: "ROL",
+    title: "Rol LOGYCA",
+    span: "half",
     description:
-      "Lineamientos prácticos para adoptar IA de forma responsable.",
-    icon: BookText,
+      "Articulador neutral y de confianza; facilita estándares, protocolos, gobernanza, capacidades y experimentación.",
+    icon: Handshake,
   },
   {
-    code: "P.03",
-    title: "Prácticas",
+    code: "2026",
+    title: "Meta 2026",
+    span: "half",
     description:
-      "Buenas prácticas y aprendizajes compartidos entre los miembros.",
-    icon: Lightbulb,
+      "Consolidar un plan estratégico del Comité para presentar al Consejo Directivo en noviembre.",
+    icon: Flag,
   },
   {
-    code: "P.04",
-    title: "Pilotos",
-    description:
-      "Validación de herramientas de IA en operaciones reales.",
-    icon: FlaskConical,
-  },
-  {
-    code: "P.05",
-    title: "Métricas",
-    description:
-      "Indicadores comunes para monitorear los avances de la red.",
-    icon: LineChart,
+    code: "FUN",
+    title: "Funciones del comité",
+    span: "full",
+    items: [
+      "Articular actores",
+      "Desarrollar guías, manuales y protocolos",
+      "Compartir información y buenas prácticas",
+      "Implementar pilotos y validar herramientas",
+      "Monitorear avances con indicadores comunes",
+    ],
+    icon: ListChecks,
   },
 ];
