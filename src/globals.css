@@ -13,6 +13,11 @@
     --holo-ember: 252 76 2; /* #FC4C02 */
     --holo-mist: 220 221 219; /* #DCDDDB */
 
+    /* ── Background image layer ────────────────────────── */
+    --bg-base: #00211d;
+    --bg-tint: #00b398;
+    --bg-image-opacity: 0.35;
+
     /* shadcn tokens remapped to the dark torquoise HUD */
     --background: 172 100% 10%;
     --foreground: 170 30% 96%;
@@ -125,6 +130,22 @@
   }
 }
 
+/* ── Fixed duotone background image ────────────────────── */
+@keyframes bg-kenburns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.bg-kenburns {
+  animation: bg-kenburns 40s ease-in-out infinite alternate;
+  will-change: transform;
+  transform-origin: center bottom;
+}
+
 @media (min-width: 1024px) and (min-height: 640px) {
   body {
     overflow: hidden;
@@ -165,5 +186,11 @@
 
   .holo-ambient {
     display: none !important;
+  }
+
+  /* keep the background image fully static (no Ken Burns jump) */
+  .bg-kenburns {
+    animation: none !important;
+    transform: scale(1) !important;
   }
 }

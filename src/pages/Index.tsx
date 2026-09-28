@@ -2,8 +2,10 @@ import { useState } from "react";
 
 import { features } from "@/lib/holo-data";
 
+import { BackgroundImage } from "@/components/hud/BackgroundImage";
 import { AuroraCanvas } from "@/components/hud/AuroraCanvas";
 import { GridOverlay } from "@/components/hud/GridOverlay";
+import { AtmosphereOverlay } from "@/components/hud/AtmosphereOverlay";
 import { ReticleCursor } from "@/components/hud/ReticleCursor";
 import { TopBar } from "@/components/hud/TopBar";
 import { HeroCard } from "@/components/hud/HeroCard";
@@ -25,8 +27,10 @@ const Index = () => {
 
   return (
     <div className="app-shell relative flex min-h-screen flex-col">
+      <BackgroundImage />
       <AuroraCanvas />
       <GridOverlay />
+      <AtmosphereOverlay />
       <ReticleCursor />
 
       <TopBar onLogin={openLogin} onJoin={openJoin} />

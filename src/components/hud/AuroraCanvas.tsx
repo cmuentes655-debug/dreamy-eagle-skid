@@ -113,6 +113,11 @@ export function AuroraCanvas() {
       ref={canvasRef}
       aria-hidden="true"
       className="holo-ambient pointer-events-none fixed inset-0 -z-20 h-full w-full"
+      // Blend the drifting mesh with the duotone photo below. The backdrop is
+      // very dark, so `soft-light`/`overlay` would nearly extinguish the aurora
+      // — `screen` keeps it vivid while letting the photo show through.
+      // Single place to tune: opacity is the only other knob.
+      style={{ mixBlendMode: "screen", opacity: 0.7 }}
     />
   );
 }
