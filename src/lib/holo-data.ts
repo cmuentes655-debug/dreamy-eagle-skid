@@ -99,3 +99,121 @@ export const actorTypes: string[] = [
   "Academia e investigación",
   "Proveedor de tecnología",
 ];
+
+/* ── Comité · participantes, fechas y pilares ───────────── */
+
+export interface Participant {
+  /** Organization name */
+  name: string;
+  /** Actor type label shown under the name */
+  type: string;
+  /** Optional logo path; a monogram placeholder is drawn when missing */
+  logo?: string;
+}
+
+export const participants: Participant[] = [
+  { name: "Puerto Valparaíso", type: "Operador logístico" },
+  { name: "Terminal Andino", type: "Terminal portuaria" },
+  { name: "Corfo", type: "Institución pública" },
+  { name: "Cámara Aduanera", type: "Gremio y asociación" },
+  { name: "Universidad Técnica", type: "Academia e investigación" },
+  { name: "Telemetría Sur", type: "Proveedor de tecnología" },
+];
+
+export type CommitteeDateStatus =
+  | "Inscripciones abiertas"
+  | "Confirmada"
+  | "Próximamente";
+
+export interface CommitteeDate {
+  /** Day number, e.g. "18" */
+  day: string;
+  /** Short month, e.g. "MAR" */
+  month: string;
+  title: string;
+  description: string;
+  /** Time / location line */
+  meta: string;
+  status: CommitteeDateStatus;
+}
+
+export const upcomingDates: CommitteeDate[] = [
+  {
+    day: "18",
+    month: "MAR",
+    title: "Sesión mensual del comité",
+    description: "Revisión de avances de pilotos y validación de protocolos.",
+    meta: "09:30 · Remoto",
+    status: "Inscripciones abiertas",
+  },
+  {
+    day: "02",
+    month: "ABR",
+    title: "Taller de protocolos de IA",
+    description: "Co-creación de lineamientos para una adopción responsable.",
+    meta: "11:00 · Santiago",
+    status: "Confirmada",
+  },
+  {
+    day: "22",
+    month: "ABR",
+    title: "Demo day de pilotos",
+    description: "Presentación de resultados de las pruebas en operaciones reales.",
+    meta: "15:00 · Híbrido",
+    status: "Próximamente",
+  },
+  {
+    day: "14",
+    month: "MAY",
+    title: "Comité ampliado · nuevas redes",
+    description: "Incorporación de nuevos actores y ampliación del alcance.",
+    meta: "10:00 · Remoto",
+    status: "Próximamente",
+  },
+];
+
+export interface Pillar {
+  /** Pillar code, e.g. "P.01" */
+  code: string;
+  title: string;
+  description: string;
+  icon: LucideIcon;
+}
+
+export const pillars: Pillar[] = [
+  {
+    code: "P.01",
+    title: "Articulación",
+    description:
+      "Conectamos empresas, instituciones y gremios de la cadena logística.",
+    icon: Network,
+  },
+  {
+    code: "P.02",
+    title: "Protocolos",
+    description:
+      "Lineamientos prácticos para adoptar IA de forma responsable.",
+    icon: BookText,
+  },
+  {
+    code: "P.03",
+    title: "Prácticas",
+    description:
+      "Buenas prácticas y aprendizajes compartidos entre los miembros.",
+    icon: Lightbulb,
+  },
+  {
+    code: "P.04",
+    title: "Pilotos",
+    description:
+      "Validación de herramientas de IA en operaciones reales.",
+    icon: FlaskConical,
+  },
+  {
+    code: "P.05",
+    title: "Métricas",
+    description:
+      "Indicadores comunes para monitorear los avances de la red.",
+    icon: LineChart,
+  },
+];

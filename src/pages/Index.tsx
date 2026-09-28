@@ -33,7 +33,7 @@ const Index = () => {
 
       <main className="bento-main relative z-10 flex-1 min-h-0 px-4 pb-6 pt-4 sm:px-6 lg:px-10 lg:pb-8 lg:pt-5">
         <div className="bento-root mx-auto grid max-w-[1600px] grid-cols-1 gap-4 lg:grid-cols-2 lg:gap-5">
-          <HeroCard onJoin={openJoin} />
+          <HeroCard />
 
           <div className="bento-mini grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 lg:gap-5">
             {features.map((feature, i) => (
